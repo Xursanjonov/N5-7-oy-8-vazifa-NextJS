@@ -7,9 +7,9 @@ import './clean.css'
 const Clean = () => {
     return (
         <div className='clean flex items-center justify-evenly'>
-            <div className="clean-1 flex flex-col justify-center gap-12">
+            <div className="clean-1 flex flex-col justify-center gap-9">
                 <div className="">
-                    <h1 className='w-[380px] text-black font-poppins text-5xl font-semibold'>Clean and fragrant soy wax</h1>
+                    <h1 className='w-[390px] text-black font-poppins text-5xl font-semibold'>Clean and fragrant soy wax</h1>
                     <p className='mb-6 text-[#56B280]'>Made for your home and for your wellness</p>
                 </div>
                 <div className="flex flex-col justify-start gap-2 text-black">
