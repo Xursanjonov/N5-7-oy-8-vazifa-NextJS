@@ -1,10 +1,17 @@
+"use client"
 import React, { Fragment } from 'react'
 import footerLogo from '@/assets/icons/footer-logo.svg'
 import Link from 'next/link'
 import Image from 'next/image'
 import './footer.css'
+import { usePathname } from 'next/navigation'
 
 const Footer = () => {
+    const path = usePathname()
+    if (path === '/admin' || path === '/login') {
+        return null
+    }
+
     return (
         <Fragment>
             <footer className='footer'>

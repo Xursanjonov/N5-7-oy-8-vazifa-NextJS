@@ -1,8 +1,15 @@
 import React from 'react'
+import Sidebar from '@/components/sidebar/Sidebar'
+import './admin-layout.css'
 
-const LayoutAdmin = () => {
+const LayoutAdmin = ({ children }) => {
     return (
-        <div>Layout Admin</div>
+        <div className='admin-layout'>
+            <Sidebar />
+            <div className='ps-4'>
+                {children}
+            </div>
+        </div>
     )
 }
 
