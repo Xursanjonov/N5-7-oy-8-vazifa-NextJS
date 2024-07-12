@@ -28,8 +28,12 @@ const Header = () => {
                     <Link className={` ${path === '/products' ? 'active' : ''}`} href={'/products'}>Products</Link>
                 </div>
                 <div className="flex items-center justify-center gap-6">
-                    <Image width={26} height={26} alt='user-icon' src={userIcon} />
-                    <Image width={22} height={22} alt='shop-icon' src={shopIcon} />
+                    <Link href={'/wish-list'}>
+                        <Image width={26} height={26} alt='user-icon' src={userIcon} />
+                    </Link>
+                    <Link href={'/cart'}>
+                        <Image width={22} height={22} alt='shop-icon' src={shopIcon} />
+                    </Link>
                 </div>
             </nav>
         </header>

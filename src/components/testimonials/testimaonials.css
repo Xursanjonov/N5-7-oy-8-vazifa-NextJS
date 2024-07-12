@@ -14,3 +14,8 @@
   letter-spacing: 0.10000000149011612px;
   text-align: center;
 }
+.users-container::-webkit-scrollbar {
+  width: 4px;
+  height: 0;
+  border: 1px solid #d5d5d5;
+}

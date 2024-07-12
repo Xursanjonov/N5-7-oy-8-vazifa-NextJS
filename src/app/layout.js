@@ -1,7 +1,9 @@
 import { Inter } from "next/font/google";
-import "./globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
+import StoreProvider from "./StoreProvider";
+import "./globals.css";
+import DefaultLocalStorage from "@/components/default-localStorage/DefaultLocalStorage";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +16,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        <main className="max-w-[1920px] mx-auto">{children}</main>
-        <Footer />
+        <StoreProvider>
+          <Header />
+          <main className="max-w-[1920px] mx-auto">{children}</main>
+          <DefaultLocalStorage />
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   );

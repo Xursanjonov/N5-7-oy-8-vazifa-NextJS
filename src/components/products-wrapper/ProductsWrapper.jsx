@@ -1,8 +1,13 @@
+"use client"
 import React, { Fragment } from 'react'
 import ProductItem from './productItem'
+import { useGetProductsQuery } from '@/lib/api/productApi';
 
-const ProductsWrapper = async ({ title, text, data = '' }) => {
-
+const ProductsWrapper = ({ title, text, limit = 8 }) => {
+    const data = () => {
+        const { data } = useGetProductsQuery("/products");
+        return data
+    }
     return (
         <Fragment>
             <div className="my-8 flex flex-col items-center justify-center gap-5">
@@ -11,7 +16,7 @@ const ProductsWrapper = async ({ title, text, data = '' }) => {
             </div>
             <div className='w-[1480px] mx-auto mt-4 mb-10 grid grid-cols-4 gap-14'>
                 {
-                    data ? (data?.map(el => (<ProductItem key={el?.id} el={el} />))) : <></>
+                    (data())?.products?.slice(0, limit).map(el => (<ProductItem key={el?.id} el={el} />))
                 }
             </div>
         </Fragment>
