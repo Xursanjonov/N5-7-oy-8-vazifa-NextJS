@@ -6,7 +6,7 @@ const Detail = async ({params}) => {
     const { id } = await params
 
     return (
-        <div className='detail w-full h-[80vh] pt-24 mx-auto'>
+        <div className='detail w-[1480px] h-auto mx-auto flex items-center justify-center py-24'>
             <ProductDetail key={id} id={id} />
         </div>
     )

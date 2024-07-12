@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import ProductItem from './productItem'
 import { useGetProductsQuery } from '@/lib/api/productApi';
 
-const ProductsWrapper = ({ title, text, limit = 8 }) => {
+const ProductsWrapper = ({ title, text, admin, limit = 8 }) => {
     const data = () => {
         const { data } = useGetProductsQuery("/products");
         return data
@@ -16,7 +16,7 @@ const ProductsWrapper = ({ title, text, limit = 8 }) => {
             </div>
             <div className='w-[1480px] mx-auto mt-4 mb-10 grid grid-cols-4 gap-14'>
                 {
-                    (data())?.products?.slice(0, limit).map(el => (<ProductItem key={el?.id} el={el} />))
+                    (data())?.products?.slice(0, limit).map(el => (<ProductItem key={el?.id} admin={admin ?? ''} el={el} />))
                 }
             </div>
         </Fragment>

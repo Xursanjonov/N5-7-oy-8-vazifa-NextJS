@@ -1,8 +1,11 @@
+import ProductsWrapper from '@/components/products-wrapper/ProductsWrapper'
 import React from 'react'
 
 const Manage = () => {
     return (
-        <div>Manage</div>
+        <div>
+            <ProductsWrapper title={'Manage'} limit={10} admin={true}  />
+        </div>
     )
 }
 
