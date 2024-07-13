@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import adminLogo from '@/assets/icons/admin-logo.svg'
@@ -10,7 +10,11 @@ import addIcon from '@/assets/icons/add-icon.svg'
 import './sidebar.css'
 
 const Sidebar = () => {
-    const [addToClass, setAddToClass] = useState(dashboardIcon)
+    const [addToClass, setAddToClass] = useState(localStorage.getItem('sidebarBtn') || 'dashboard')
+
+    useEffect(() => {
+        localStorage.setItem('sidebarBtn', addToClass)
+    }, [addToClass])
 
     return (
         <div className='admin__sidebar h-screen bg-blue-500'>
@@ -20,32 +24,32 @@ const Sidebar = () => {
             </button>
             <ul className='w-full mt-5 flex flex-col items-start gap-2'>
                 <Link href={'/admin/dashboard'}
-                    onClick={() => setAddToClass(dashboardIcon)}
-                    className={`w-[85%] mx-auto flex items-center gap-4 ${addToClass === dashboardIcon ? 'bg-[#333A48]' : ''} justify-start py-3 text-xl rounded-md`}>
+                    onClick={() => setAddToClass('dashboard')}
+                    className={`w-[85%] mx-auto flex items-center gap-4 ${addToClass === 'dashboard' ? 'bg-[#333A48]' : ''} justify-start py-3 text-xl rounded-md`}>
                     <figure className='w-6 ms-4 flex items-center justify-end'>
                         <Image width={24} height={24} alt='Admin logo' src={dashboardIcon} />
                     </figure>
                     Dashboard
                 </Link>
                 <Link href={'/admin/create'}
-                    onClick={() => setAddToClass(addIcon)}
-                    className={`w-[85%] mx-auto flex items-center gap-4 ${addToClass === addIcon ? 'bg-[#333A48]' : ''} justify-start py-3 text-xl rounded-md`}>
+                    onClick={() => setAddToClass('create')}
+                    className={`w-[85%] mx-auto flex items-center gap-4 ${addToClass === 'create' ? 'bg-[#333A48]' : ''} justify-start py-3 text-xl rounded-md`}>
                     <figure className='w-6 ms-4 flex items-center justify-end'>
                         <Image width={22} height={22} alt='Admin logo' src={addIcon} />
                     </figure>
                     Create Product
                 </Link>
                 <Link href={'/admin/manage'}
-                    onClick={() => setAddToClass(adminLogo)}
-                    className={`w-[85%] mx-auto flex items-center gap-4 ${addToClass === adminLogo ? 'bg-[#333A48]' : ''} justify-start py-3 text-xl rounded-md`}>
+                    onClick={() => setAddToClass('manage')}
+                    className={`w-[85%] mx-auto flex items-center gap-4 ${addToClass === 'manage' ? 'bg-[#333A48]' : ''} justify-start py-3 text-xl rounded-md`}>
                     <figure className='ms-4 flex items-center justify-end'>
                         <Image width={28} height={28} alt='Admin logo' src={manageIcon} />
                     </figure>
                     Product Manage
                 </Link>
                 <Link href={'/admin/category'}
-                    onClick={() => setAddToClass(categoryIcon)}
-                    className={`w-[85%] mx-auto flex items-center gap-4 ${addToClass === categoryIcon ? 'bg-[#333A48]' : ''} justify-start py-3 text-xl rounded-md`}>
+                    onClick={() => setAddToClass('category')}
+                    className={`w-[85%] mx-auto flex items-center gap-4 ${addToClass === 'category' ? 'bg-[#333A48]' : ''} justify-start py-3 text-xl rounded-md`}>
                     <figure className='ms-4 flex items-center justify-end'>
                         <Image width={32} height={32} alt='Admin logo' src={categoryIcon} />
                     </figure>

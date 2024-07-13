@@ -4,7 +4,7 @@ import React from 'react'
 const Manage = () => {
     return (
         <div>
-            <ProductsWrapper title={'Manage'} limit={10} admin={true}  />
+            <ProductsWrapper limit={10} admin={true} mock={true}  />
         </div>
     )
 }

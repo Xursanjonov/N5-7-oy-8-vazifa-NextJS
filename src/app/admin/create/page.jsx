@@ -3,8 +3,8 @@ import React from 'react'
 
 const Create = () => {
     return (
-        <div>
-            <h1>Create</h1>
+        <div className='w-[100%] mx-auto'>
+            <h1 className='text-2xl font-bold mb-6'>Create new Product</h1>
             <CreateProduct />
         </div>
     )

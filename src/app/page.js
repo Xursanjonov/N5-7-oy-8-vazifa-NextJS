@@ -19,6 +19,7 @@ export default function Home() {
         title="Popular"
         text="Our top selling product that you may like"
       />
+    
     </section>
   );
 }

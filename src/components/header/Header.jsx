@@ -27,7 +27,7 @@ const Header = () => {
                     <Link className={` ${path === '/products' ? 'active' : ''}`} href={'/products'}>Products</Link>
                 </div>
                 <div className="flex items-center justify-center gap-6">
-                    <Link href={'/admin/dashboard'}>
+                    <Link href={`/admin/${localStorage.getItem('sidebarBtn')}`}>
                         <Image width={26} height={26} alt='user-icon' src={userIcon} />
                     </Link>
                     <Link href={'/wish-list'}>
