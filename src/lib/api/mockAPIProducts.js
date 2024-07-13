@@ -1,6 +1,6 @@
 import { mockAPI } from "./mockApi";
 
-export const productApi = mockAPI.injectEndpoints({
+export const mockAPIproduct = mockAPI.injectEndpoints({
     endpoints: (build) => ({
         getMockAPIProducts: build.query({
             query: (params) => ({
@@ -41,4 +41,4 @@ export const productApi = mockAPI.injectEndpoints({
     }),
 });
 
-export const { useGetMockAPIProductsQuery,useGetMockAPIProductByIdQuery, useCreateMockAPIProductMutation, useDeleteMockAPIProductMutation, useUpdateMockAPIProductMutation } = productApi;
+export const { useGetMockAPIProductsQuery,useGetMockAPIProductByIdQuery, useCreateMockAPIProductMutation, useDeleteMockAPIProductMutation, useUpdateMockAPIProductMutation } = mockAPIproduct;

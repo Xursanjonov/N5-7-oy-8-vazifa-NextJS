@@ -11,7 +11,7 @@ import Image from 'next/image'
 const Header = () => {
     const path = usePathname()
 
-    if (path === '/admin' || path === '/admin/dashboard' || path === '/admin/create' || path === '/admin/manage' || path === '/admin/category' || path === '/login') {
+    if (['/admin', '/admin/dashboard', '/admin/create', '/admin/manage', '/admin/category', '/login'].includes(path)) {
         return null
     }
 
@@ -27,11 +27,11 @@ const Header = () => {
                     <Link className={` ${path === '/products' ? 'active' : ''}`} href={'/products'}>Products</Link>
                 </div>
                 <div className="flex items-center justify-center gap-6">
-                    <Link href={`/admin/${localStorage.getItem('sidebarBtn')}`}>
+                    <Link href={`/admin/${typeof window !== 'undefined' ? localStorage.getItem('sidebarBtn') : ''}`}>
                         <Image width={26} height={26} alt='user-icon' src={userIcon} />
                     </Link>
                     <Link href={'/wish-list'}>
-                        <Image width={22} height={22} alt='user-icon' src={wishlist} />
+                        <Image width={22} height={22} alt='wishlist-icon' src={wishlist} />
                     </Link>
                     <Link href={'/cart'}>
                         <Image width={22} height={22} alt='shop-icon' src={shopIcon} />

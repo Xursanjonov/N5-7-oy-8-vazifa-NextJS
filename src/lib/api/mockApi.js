@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery, retry } from "@reduxjs/toolkit/query/react";
 // import { logout } from '../slices/authSlice';
 
-const baseQueryAPI = async (args, api, extraOptions) => {
+const baseQueryAPI = async (args, mockAPI, extraOptions) => {
     // const { dispatch } = api;
     const rawBaseQuery = fetchBaseQuery({
         baseUrl: "https://669124ae26c2a69f6e8ea36d.mockapi.io/newproject",
@@ -14,7 +14,7 @@ const baseQueryAPI = async (args, api, extraOptions) => {
         },
     });
 
-    const result = await rawBaseQuery(args, api, extraOptions);
+    const result = await rawBaseQuery(args, mockAPI, extraOptions);
 
     if (result.error) {
         const { status } = result.error;
