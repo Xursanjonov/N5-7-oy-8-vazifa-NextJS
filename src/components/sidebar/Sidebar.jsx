@@ -10,7 +10,8 @@ import addIcon from '@/assets/icons/add-icon.svg'
 import './sidebar.css'
 
 const Sidebar = () => {
-    const [addToClass, setAddToClass] = useState(localStorage.getItem('sidebarBtn') || 'dashboard')
+    // const [addToClass, setAddToClass] = useState(localStorage.getItem('sidebarBtn') || 'dashboard')
+    const [addToClass, setAddToClass] = useState('dashboard')
 
     useEffect(() => {
         localStorage.setItem('sidebarBtn', addToClass)
