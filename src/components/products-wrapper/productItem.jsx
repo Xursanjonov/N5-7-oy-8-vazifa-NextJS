@@ -7,8 +7,11 @@ import { useDeleteMockAPIProductMutation } from '@/lib/api/mockAPIProducts'
 import { addToCart } from '@/lib/features/cart/cartSlice'
 import trash from '@/assets/icons/trash-icon.svg'
 import addIcon from '@/assets/icons/add-icon.svg'
+import shopIcon from '@/assets/icons/shop-icon.svg'
+import likeIcon from '@/assets/icons/wish-list.svg'
 import Modal from '../modal/Modal'
 import './product-item.css'
+import { addToLike } from '@/lib/features/wishlist/wishlistSlice'
 
 const emptyImg = 'https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty-300x240.jpg'
 
@@ -16,12 +19,6 @@ const ProductItem = ({ el, admin }) => {
     const dispatch = useDispatch()
     const [openModal, setOpenModal] = useState(null)
     const [deleteProduct] = useDeleteMockAPIProductMutation()
-
-    const manageDelete = () => {
-        if (admin) {
-            dispatch(deleteProduct(el?.id))
-        }
-    }
 
     return (
         <Fragment>
@@ -35,11 +32,18 @@ const ProductItem = ({ el, admin }) => {
                                 <button className='w-8 py-1 rounded-md bg-[#1C2434]'>
                                     <Image width={20} height={20} className='w-10 h-[20px]' alt='' src={addIcon} />
                                 </button>
-                                <button onClick={() => setOpenModal(el?.id)} className='w-8 py-1 rounded-md bg-[#1C2434]'>
+                                <button title='delete product' onClick={() => setOpenModal(el?.id)} className='w-8 py-1 rounded-md bg-[#1C2434]'>
                                     <Image width={20} height={20} className='w-10 h-[20px]' alt='' src={trash} />
                                 </button>
                             </div> :
-                                <button onClick={() => dispatch(addToCart(el))} className='w-40 border-2'>add to cart</button>
+                                <div className='w-40 flex items-center gap-2'>
+                                    <button onClick={() => dispatch(addToLike(el))} className='w-8 h-8 flex items-center justify-start rounded-md border-[1px] bg-green-200 border-green-500'>
+                                        <Image width={20} height={20} className='w-8 h-[20px]' alt='' src={shopIcon} />
+                                    </button>
+                                    <button onClick={() => dispatch(addToCart(el))} className='w-8 h-8 flex items-center justify-start rounded-md border-[1px] bg-gray-200 border-gray-400'>
+                                        <Image width={20} height={20} className='w-8 h-[20px]' alt='' src={likeIcon} />
+                                    </button>
+                                </div>
                         }
                         <p className='w-full text-end text-green-500'>{el?.price}$</p>
                     </div>
